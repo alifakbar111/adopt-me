@@ -4,11 +4,8 @@ import { useParams } from "react-router-dom";
 class Details extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      loading: true,
-    };
   }
-  // state = {};
+  state = { loading: true };
   async componentDidMount() {
     const res = await fetch(
       `http://pets-images.dev-apis.com/pets?id=${this.props.params.id}`
