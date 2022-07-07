@@ -28,31 +28,36 @@ class Details extends Component {
     return (
       <div className="details">
         <Carousel images={images} />
-        <div>
-          <h1>{name}</h1>
-          <h2>{`${animal} - ${breed} - ${city}, ${state}`}</h2>
-          <ThemeContext.Consumer>
-            {([theme]) => (
-              <button
-                onClick={this.toggleModal}
-                style={{ backgroundColor: theme }}
-              >
-                Adopt {name}
-              </button>
-            )}
-          </ThemeContext.Consumer>
-          <p>{description}</p>
-          {showModal ? (
-            <Modal>
-              <div>
-                <h1>Would you like to adopt {name}?</h1>
-                <div className="buttons">
-                  <a href="https://bit.ly/pet-adopt">Yes</a>
-                  <button onClick={this.toggleModal}>No</button>
+        <div className="grid grid-cols-6 gap-4">
+          <div className="bg-sky-200 rounded-lg col-start-2 col-span-4 p-5">
+            <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
+              {name}
+            </h1>
+            <h2 className="text-xl py-2">{`${animal} - ${breed} - ${city} - ${state}`}</h2>
+            <p>{description}</p>
+            <ThemeContext.Consumer>
+              {([theme]) => (
+                <button
+                  className="rounded px-6 py-2 text-white hover:opacity-75 mt-6"
+                  onClick={this.toggleModal}
+                  style={{ backgroundColor: theme }}
+                >
+                  Adopt {name}
+                </button>
+              )}
+            </ThemeContext.Consumer>
+            {showModal ? (
+              <Modal>
+                <div>
+                  <h1>Would you like to adopt {name}?</h1>
+                  <div className="buttons">
+                    <a href="https://bit.ly/pet-adopt">Yes</a>
+                    <button onClick={this.toggleModal}>No</button>
+                  </div>
                 </div>
-              </div>
-            </Modal>
-          ) : null}
+              </Modal>
+            ) : null}
+          </div>
         </div>
       </div>
     );

@@ -21,7 +21,7 @@ const SearchParams = () => {
 
   async function requestPets() {
     const res = await fetch(
-      `https://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
+      `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
     );
     const json = await res.json();
     setPets(json.pets);
@@ -30,7 +30,7 @@ const SearchParams = () => {
   return (
     <div className="my-0 mx-auto w-11/12">
       <form
-        className="p-10 mb-10 rounded-lg bg-gray-200 shadow-lg flex flex-col justify-center items-center"
+        className="p-8 mb-4 rounded-lg bg-white shadow-lg flex flex-col justify-center items-center"
         onSubmit={(e) => {
           e.preventDefault();
           requestPets();
@@ -41,7 +41,7 @@ const SearchParams = () => {
           <input
             id="location"
             type="text"
-            className="w-60 mb-5 block"
+            className="w-60 mb-5 block rounded-full"
             value={location}
             placeholder="Location"
             onChange={(e) => updateLocation(e.target.value)}
@@ -52,7 +52,7 @@ const SearchParams = () => {
           <select
             id="animal"
             value={animal}
-            className="w-60 mb-5 block"
+            className="w-60 mb-5 block rounded-full"
             onChange={(e) => {
               updateAnimal(e.target.value);
               updateBreed("");
@@ -76,7 +76,7 @@ const SearchParams = () => {
             disabled={!breeds.length}
             id="breed"
             value={breed}
-            className="w-60 mb-5 block"
+            className="w-60 mb-5 block rounded-full"
             onChange={(e) => updateBreed(e.target.value)}
             onBlur={(e) => updateBreed(e.target.value)}
           >
@@ -92,7 +92,7 @@ const SearchParams = () => {
           Theme
           <select
             value={theme}
-            className="w-60 mb-5 block"
+            className="w-60 mb-5 block rounded-full"
             onChange={(e) => setTheme(e.target.value)}
             onBlur={(e) => setTheme(e.target.value)}
           >
