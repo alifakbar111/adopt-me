@@ -20,6 +20,9 @@ class Details extends Component<{ params: { id?: string } }> {
   };
 
   async componentDidMount() {
+    if (!this.props.params.id) {
+      return;
+    }
     const res = await fetch(
       `http://pets-v2.dev-apis.com/pets?id=${this.props.params.id}`
     );
@@ -77,7 +80,7 @@ class Details extends Component<{ params: { id?: string } }> {
 }
 
 const WrappedDetails = () => {
-  const params = useParams<{id: string}>();
+  const params = useParams<{ id: string }>();
   return (
     <ErrorBoundary>
       <Details params={params} />;
