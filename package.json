@@ -1,7 +1,8 @@
 {
   "name": "adopt-me",
   "version": "1.0.0",
-  "description": "",
+  "description": "Adopt pets via adopt-me",
+  "main": "src/App.js",
   "scripts": {
     "dev": "parcel src/index.html",
     "build": "parcel build",
@@ -11,7 +12,7 @@
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet"
   },
   "keywords": [],
-  "author": "",
+  "author": "alif akbar",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.18.5",
